@@ -1,0 +1,10 @@
+<% provide(:title, 'Edit Comment') %>
+<div class="panel panel-default">
+  <div class="panel-body">
+<h1>Editing comment</h1>
+
+<%= render 'form' %>
+<%= link_to 'Show', [@comment.post, @comment] %> |
+<%= link_to 'Back', post_comments_path(@comment.post) %>
+  </div>
+</div>

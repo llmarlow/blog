@@ -1,0 +1,19 @@
+<% provide(:title, 'Comments') %>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h1>Comments</h1>
+      <% @comments.each do |comment| %>
+      <p><%= comment.body %></p>
+      <p><strong>by <%= comment.commenter %></strong></p>
+      <% if user_signed_in? %>
+         <p> <%= link_to 'Edit', edit_post_comment_path(comment.post, comment)%> |
+          <%= link_to 'Destroy', [comment.post, comment], :confirm => 'Are you sure?', :method => :delete %></p>
+      <% end %>
+      <% end %>
+
+     <br />
+      <% if user_signed_in? %>
+      <%= link_to 'New Comment', new_post_comment_path %> 
+      <% end %>
+  </div>
+</div>
